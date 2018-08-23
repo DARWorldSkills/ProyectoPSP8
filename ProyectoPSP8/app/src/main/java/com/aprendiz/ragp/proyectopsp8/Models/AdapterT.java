@@ -11,18 +11,19 @@ import com.aprendiz.ragp.proyectopsp8.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterP extends RecyclerView.Adapter<AdapterP.Holder>{
+public class AdapterT extends RecyclerView.Adapter<AdapterT.Holder>{
     //Declaración de varables
-    List<CProject> cProjectList = new ArrayList<>();
+    List<CTimeLog> cTimeLogs = new ArrayList<>();
     private OnItemClickListener mlistener;
     //interface para OnItemClickListener
     public interface OnItemClickListener{
         void itemClick(int position);
     }
 
-    //Constructor para la clase AdapterP
-    public AdapterP(List<CProject> cProjectList) {
-        this.cProjectList = cProjectList;
+    //Constructor para la clase AdapterT
+
+    public AdapterT(List<CTimeLog> cTimeLogs) {
+        this.cTimeLogs = cTimeLogs;
     }
 
     //Setter para la variable mlistener
@@ -41,19 +42,22 @@ public class AdapterP extends RecyclerView.Adapter<AdapterP.Holder>{
     //Método para el llamado del método connectData
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        holder.connectData(cProjectList.get(position));
+        holder.connectData(cTimeLogs.get(position));
     }
 
     //Método para mostrar un número determidado de items
     @Override
     public int getItemCount() {
-        return cProjectList.size();
+        return cTimeLogs.size();
     }
 
     //Clase interna llamada Holder
     public class Holder extends RecyclerView.ViewHolder {
         //Declaración del view txtProjecto
-        TextView txtProjecto = itemView.findViewById(R.id.txtProjecto);
+        TextView txtPrimero = itemView.findViewById(R.id.txtPrimero);
+        TextView txtSegundo = itemView.findViewById(R.id.txtSegundo);
+        TextView txtTercero = itemView.findViewById(R.id.txtTercero);
+
         //Constructor para la utilización del Holder
         public Holder(View itemView, final OnItemClickListener mlistener) {
             super(itemView);
@@ -71,8 +75,10 @@ public class AdapterP extends RecyclerView.Adapter<AdapterP.Holder>{
         }
 
         //Método para el ingreso de datos al item
-        public void connectData(CProject project){
-            txtProjecto.setText(project.getNombre());
+        public void connectData(CTimeLog cTimeLogs){
+            txtPrimero.setText(cTimeLogs.getPhase());
+            txtSegundo.setText(cTimeLogs.getStart());
+            txtTercero.setText(cTimeLogs.getStop());
         }
     }
 }

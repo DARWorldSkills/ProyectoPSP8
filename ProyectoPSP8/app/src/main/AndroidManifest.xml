@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuPrincipal">
-
-        </activity>
+        <activity android:name=".MenuPrincipal" />
         <activity
             android:name=".Controllers.TimerLog"
             android:label="@string/title_activity_timer_log" />
@@ -23,14 +21,14 @@
             android:label="@string/title_activity_proyect_plan_summary"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Controllers.Menu_Proyecto">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".Controllers.LTimeLog" />
+        <activity android:name=".Controllers.LDefectLog"></activity>
     </application>
 
 </manifest>
