@@ -51,8 +51,14 @@ public class MenuPrincipal extends AppCompatActivity {
                         try {
                             tiempo=Integer.parseInt(txtTiempo.getText().toString());
                         }catch (Exception e){
-                            Toast.makeText(MenuPrincipal.this, "Por favor ingresa un tiempo valido", Toast.LENGTH_SHORT).show();
+
                             txtTiempo.setError("Por favor ingresa un tiempo valido");
+                            if(nombre.length()<=0){
+                                Toast.makeText(MenuPrincipal.this, "Campos incompletos", Toast.LENGTH_SHORT).show();
+                                txtTiempo.setError("Por favor ingresa un nombre válido");
+                            }else {
+                                Toast.makeText(MenuPrincipal.this, "Por favor ingresa un tiempo valido", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         if (nombre.length()>0 && tiempo>0 ) {
                             project.setNombre(nombre);
@@ -65,7 +71,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
                         }else if(nombre.length()<=0){
                             Toast.makeText(MenuPrincipal.this, "Por favor ingresa un nombre válido", Toast.LENGTH_SHORT).show();
-                            txtTiempo.setError("Por favor ingresa un nombre válido");
+                            txtProjecto.setError("Por favor ingresa un nombre válido");
                         }
                     }
                 });
