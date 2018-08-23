@@ -29,9 +29,11 @@
 
         <EditText
             android:id="@+id/txtDate"
-            android:layout_width="157dp"
+            android:layout_width="154dp"
+            android:layout_height="match_parent"
             android:enabled="false"
-            android:layout_height="match_parent" />
+            android:hint="Date"
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/btnDate"
@@ -208,7 +210,7 @@
 
 
         <EditText
-            android:id="@+id/txtComentarios"
+            android:id="@+id/txtDescripcion"
             android:layout_width="match_parent"
             android:textColor="#fff"
             android:layout_height="match_parent" />

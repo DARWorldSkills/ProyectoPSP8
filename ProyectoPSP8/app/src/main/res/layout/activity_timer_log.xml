@@ -59,14 +59,15 @@
 
         <EditText
             android:id="@+id/txtStart"
-            android:layout_width="146dp"
+            android:layout_width="156dp"
+            android:layout_height="match_parent"
             android:enabled="false"
             android:hint="Start Proyect"
-            android:layout_height="match_parent" />
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/btnStart"
-            android:layout_width="48dp"
+            android:layout_width="45dp"
             android:layout_height="40dp"
             android:background="@drawable/reloj" />
 
@@ -122,14 +123,15 @@
 
         <EditText
             android:id="@+id/txtStop"
-            android:layout_width="148dp"
-            android:hint="Stop Proyect"
+            android:layout_width="158dp"
+            android:layout_height="match_parent"
             android:enabled="false"
-            android:layout_height="match_parent" />
+            android:hint="Stop Proyect"
+            android:textSize="13sp" />
 
         <Button
             android:id="@+id/btnStop"
-            android:layout_width="48dp"
+            android:layout_width="45dp"
             android:layout_height="40dp"
             android:background="@drawable/reloj" />
 
