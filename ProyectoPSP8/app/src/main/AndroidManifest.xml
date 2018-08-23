@@ -25,7 +25,8 @@
         <activity
             android:name=".Controllers.ProyectPlanSummary"
             android:label="@string/title_activity_proyect_plan_summary"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Controllers.Menu_Proyecto"></activity>
     </application>
 
 </manifest>
