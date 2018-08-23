@@ -56,6 +56,8 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_defect_log);
 
+
+        //Creamos metodos
         inicializar();
         escuchar();
         listar();
@@ -66,6 +68,7 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    //Metodo validar el cual no deja regstrar si faltan campos
     private void validar() {
 
         int validar = 0;
@@ -87,6 +90,7 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    //Metodo listar, Generamos la lista para los spinners
     private void listar() {
 
 
@@ -119,6 +123,7 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
         spinnerPhaseIn.setAdapter(adapter1);
 
     }
+    //LLamamos los botones para que sean "escuchados"
 
     private void escuchar() {
 
@@ -127,6 +132,7 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
         btnstop.setOnClickListener(this);
         btnDate.setOnClickListener(this);
     }
+    //Inicializamos los campos de los layout
 
     private void inicializar() {
 
@@ -145,6 +151,7 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    //Metodo del OnClickListener Donde generamos las funciones para los botones
     @Override
     public void onClick(View v) {
 
@@ -152,7 +159,7 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
             case R.id.btnDate:
 
                 date = new Date();
-                SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");  // Tomamos la hora y fehca del celular
                 String fecha1 = fecha.format(date);
                 txtDate.setText(fecha1);
 

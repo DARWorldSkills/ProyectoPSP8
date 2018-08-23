@@ -55,6 +55,8 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_timer_log);
 
 
+        // Creamos los metodos
+
         inicializar();
         escuchar();
         Listar();
@@ -66,6 +68,8 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+
+    // Metodo que no deja registrar un Timer si flata algun campo
     private void validar() {
 
         int validar = 0;
@@ -84,6 +88,8 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
 
     }
 
+
+    //Metodo que lista el spinner de la phase
     private void Listar() {
 
 
@@ -96,14 +102,18 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
         phase.add("PM");
 
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, phase);
+        // Obtenemos los datos de la lista
         spinnerPhas.setAdapter(adapter);
     }
 
+    //Escuchamos(Llamamos) los botones
     private void escuchar() {
         btnStart.setOnClickListener(this);
         btnStop.setOnClickListener(this);
     }
 
+
+    //Referenciamos los campos
     private void inicializar() {
 
         spinnerPhas = findViewById(R.id.SpinnerPhase);
@@ -128,6 +138,7 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.btnStart:
 
+                // Obtenemos la hora y la fecha del dispositivo
                date = new Date();
                 SimpleDateFormat fecha =new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 String fecha1 = fecha.format(date);
@@ -139,6 +150,7 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.btnStop:
 
+                // Obtenemos la hora y la fecha del dispositivo
                 date = new Date();
                 SimpleDateFormat stop = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 String stop1 = stop.format(date);
