@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MenuPrincipal">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Controllers.TimerLog"
@@ -26,7 +22,15 @@
             android:name=".Controllers.ProyectPlanSummary"
             android:label="@string/title_activity_proyect_plan_summary"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Controllers.Menu_Proyecto"></activity>
+        <activity android:name=".Controllers.Menu_Proyecto">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
