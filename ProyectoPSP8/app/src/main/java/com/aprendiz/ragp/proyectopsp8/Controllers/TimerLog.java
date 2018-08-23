@@ -66,7 +66,12 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+
 
 
     // Metodo que no deja registrar un Timer si flata algun campo

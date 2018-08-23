@@ -19,15 +19,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DefectLog extends AppCompatActivity implements View.OnClickListener{
+public class DefectLog extends AppCompatActivity implements View.OnClickListener {
 
     EditText txtDate, txtFix, txtDescription;
-
-    Button btnDate,btngo,btnstop,btnrestart;
-
+    Button btnDate, btngo, btnstop, btnrestart;
     Spinner spinnerType, spinnerPhaseIn, spinnerPhaseRe;
-
     Date date;
+
+    boolean bandera = true;
+    boolean bandera1 = false;
+
+    Thread thread;
+
+    int [] tiempo = {0,0};
+
 
     private TextView mTextMessage;
 
@@ -62,11 +67,87 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
         escuchar();
         listar();
         validar();
+        cronometro();
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+
+    // Creamos metodo para correr el cronometro, Iniciar, Parar y reiniciar
+
+    private void cronometro() {
+
+        thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                while (bandera) {
+                    try {
+                        {
+                            Thread.sleep(1000);
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+
+                                if (bandera1) {
+                                    tiempo[0]++;
+                                    if (tiempo[0] == 60) {
+                                        tiempo[1]++;
+                                        tiempo[0] = 0;
+                                    }
+
+                                    if (tiempo[0] >= 0 && tiempo[0] < 10) {
+                                        if (tiempo[0] >= 0 && tiempo[0] < 10) {
+                                            txtFix.setText("0" + tiempo[1] + ":" + "0" + tiempo[0]);
+                                        } else {
+
+                                            txtFix.setText(tiempo[1] + ":" + "0" + tiempo[0]);
+                                        }
+                                    }
+
+
+                                    if (tiempo[0] >= 10 && tiempo[0] < 60) {
+                                        if (tiempo[0] >= 0 && tiempo[0] < 10) {
+                                            txtFix.setText("0" + tiempo[1] + ":" + tiempo[0]);
+
+                                        } else {
+
+                                            txtFix.setText(tiempo[1] + ":" + tiempo[0]);
+                                        }
+                                    }
+                                }
+
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        });
+        thread.start();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
 
     //Metodo validar el cual no deja regstrar si faltan campos
     private void validar() {
@@ -168,10 +249,15 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
 
             case R.id.btnGo:
 
+                cronometro();
+                bandera = true;
                 break;
 
 
             case R.id.btnStop:
+
+                cronometro();
+                bandera1 =false;
 
                 break;
 
