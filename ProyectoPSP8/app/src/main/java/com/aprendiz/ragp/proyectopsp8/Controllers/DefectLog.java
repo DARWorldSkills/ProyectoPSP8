@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -78,6 +79,24 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+
+
+    // Option del boton de devolver a la anterior actividad
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        int id = item.getItemId();
+        switch (id){
+            case android.R.id.home:
+
+                finish();
+                break;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
 
     // Creamos metodo para correr el cronometro, Iniciar, Parar y reiniciar
 

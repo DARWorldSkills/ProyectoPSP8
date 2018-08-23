@@ -74,6 +74,23 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
 
 
 
+    // Option del boton de devolver a la anterior actividad
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        int id = item.getItemId();
+        switch (id){
+            case android.R.id.home:
+
+                finish();
+                break;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     // Metodo que no deja registrar un Timer si flata algun campo
     private void validar() {
