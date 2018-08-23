@@ -1,4 +1,4 @@
-package com.aprendiz.ragp.proyectopsp8;
+package com.aprendiz.ragp.proyectopsp8.Models;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

@@ -1,10 +1,9 @@
-package com.aprendiz.ragp.proyectopsp8;
+package com.aprendiz.ragp.proyectopsp8.Models;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.view.ViewAnimationUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
