@@ -18,6 +18,9 @@ public class Menu_Proyecto extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu__proyecto);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         inicializar();
         escuchar();
