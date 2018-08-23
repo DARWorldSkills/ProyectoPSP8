@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aprendiz.ragp.proyectopsp8.R;
 
@@ -169,6 +170,7 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
         }
 
 
+
     }
 
     //Metodo listar, Generamos la lista para los spinners
@@ -249,19 +251,24 @@ public class DefectLog extends AppCompatActivity implements View.OnClickListener
 
             case R.id.btnGo:
 
-                cronometro();
-                bandera = true;
+                bandera1 = true;
+                Toast.makeText(this, "Go", Toast.LENGTH_SHORT).show();
                 break;
 
 
             case R.id.btnStop:
 
-                cronometro();
                 bandera1 =false;
-
+                Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.btnRestart:
+
+                bandera1 = false;
+                tiempo[0]=0;
+                tiempo[1]=0;
+                txtFix.setText("0" + tiempo[1] + ":" + "0" + tiempo[0]);
+                Toast.makeText(this, "Restart", Toast.LENGTH_SHORT).show();
 
                 break;
 

@@ -24,8 +24,9 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
     Spinner spinnerPhas;
     EditText txtStart, txtInterupcion, txtStop, txtDelta, txtComentarios;
     Button btnStart, btnStop;
-
-    Date date;
+    Date datestop, datestart;
+    int delta = 0;
+    int interrupciones = 0;
 
     private TextView mTextMessage;
 
@@ -90,6 +91,12 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
         }else {
             txtStop.setError("You need this field");
         }
+        if (delta >= 0){
+            validar++;
+        }else {
+            txtDelta.setError("This field can not negative");
+        }
+
 
     }
 
@@ -136,6 +143,26 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
 
     }
 
+    private void CalcularDelta() {
+
+        calcularInterrupciones();
+        double diferencia = datestop.getTime() - datestart.getTime();
+        delta = ((int) (diferencia/ 60000))- interrupciones;
+        txtDelta.setText(Integer.toString(delta));
+
+
+    }
+
+    private void calcularInterrupciones() {
+        try {
+            interrupciones = Integer.parseInt(txtInterupcion.getText().toString());
+
+        }catch (Exception e){
+            interrupciones = 0;
+        }
+
+    }
+
     @Override
     public void onClick(View v) {
 
@@ -144,10 +171,9 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
             case R.id.btnStart:
 
                 // Obtenemos la hora y la fecha del dispositivo
-               date = new Date();
-                SimpleDateFormat fecha =new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                String fecha1 = fecha.format(date);
-                txtStart.setText(fecha1);
+
+                obtenerHora();
+                btnStop.setEnabled(true);
 
 
                 break;
@@ -156,14 +182,29 @@ public class TimerLog extends AppCompatActivity implements View.OnClickListener 
             case R.id.btnStop:
 
                 // Obtenemos la hora y la fecha del dispositivo
-                date = new Date();
-                SimpleDateFormat stop = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                String stop1 = stop.format(date);
-                txtStop.setText(stop1);
+                obtenerHora1();
+                CalcularDelta();
+
 
                 break;
         }
 
 
+    }
+
+    private void obtenerHora1() {
+
+        datestart = new Date();
+        SimpleDateFormat stop = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String stop1 = stop.format(datestart);
+        txtStop.setText(stop1);
+    }
+
+    private void obtenerHora() {
+
+        datestop = new Date();
+        SimpleDateFormat fecha =new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String fecha1 = fecha.format(datestop);
+        txtStart.setText(fecha1);
     }
 }
