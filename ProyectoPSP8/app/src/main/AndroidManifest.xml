@@ -16,6 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Controllers.TimerLog"
+            android:label="@string/title_activity_timer_log" />
+        <activity
+            android:name=".Controllers.DefectLog"
+            android:label="@string/title_activity_defect_log" />
+        <activity
+            android:name=".Controllers.ProyectPlanSummary"
+            android:label="@string/title_activity_proyect_plan_summary"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
