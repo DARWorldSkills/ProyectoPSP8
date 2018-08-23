@@ -1,4 +1,4 @@
-package com.aprendiz.ragp.proyectopsp8;
+package com.aprendiz.ragp.proyectopsp8.Models;
 
 public class Constants {
     //Declaración de constantes para la creación de la base de datos

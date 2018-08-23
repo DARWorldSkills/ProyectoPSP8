@@ -1,4 +1,4 @@
-package com.aprendiz.ragp.proyectopsp8;
+package com.aprendiz.ragp.proyectopsp8.Models;
 
 public class CDefectLog {
     //Declaración de varaibles
